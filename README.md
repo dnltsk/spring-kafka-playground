@@ -1,10 +1,20 @@
 # spring-kafka-playground
-have fun with spring-kafka 
+
+Have fun with spring-kafka 
+
+Application consumes time related event messages of a kafka topic
+
+Main Features:
+
+* Filtering of incoming outdated events
+* ~~Cache warm-up on start-up~~
+* ~~Cache clean up of outdated messages~~
+
+
 
 ## start
 
 1. start Kafka<br>
-  * `docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip \`docker-machine active\`` --env ADVERTISED_PORT=9092 spotify/kafka`
   * or `docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 spotify/kafka`
 
 2. debug
