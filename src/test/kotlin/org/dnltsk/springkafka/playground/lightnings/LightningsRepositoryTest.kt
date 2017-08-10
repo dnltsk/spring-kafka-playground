@@ -3,22 +3,15 @@ package org.dnltsk.springkafka.playground.lightnings
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
 import java.time.Instant
 
 class LightningsRepositoryTest {
 
-    @Mock
-    lateinit var validator: LightningValidator
-
-    @InjectMocks
-    lateinit var repository: LightningsRepository
+    lateinit var repository : LightningsRepository
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
+        repository = LightningsRepository()
     }
 
     val sampleLightning = Lightning(
