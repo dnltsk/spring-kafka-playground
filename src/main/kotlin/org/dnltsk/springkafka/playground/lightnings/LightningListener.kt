@@ -4,10 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.kafka.annotation.KafkaListener
+import java.time.Instant
 
 class LightningListener @Autowired constructor(
         val lightningsRepository: LightningsRepository,
-        val lightningValidator: LightningValidator_1_naive,
+        val lightningValidator_1_naive: LightningValidator_1_naive,
+        val lightningValidator_2_now: LightningValidator_2_now,
         val objectMapper: ObjectMapper
 ) {
 
@@ -21,7 +23,8 @@ class LightningListener @Autowired constructor(
             LOG.error("cannot deserialize lightning from $message", e)
             return
         }
-        lightningValidator.validate(incomingLightning)
+        //lightningValidator_1_naive.validate(incomingLightning)
+        lightningValidator_2_now.validate(Instant.now(), incomingLightning)
         lightningsRepository.addLightning(incomingLightning)
     }
 

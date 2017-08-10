@@ -5,12 +5,11 @@ import java.time.Duration
 import java.time.Instant
 
 @Component
-class LightningValidator_1_naive {
+class LightningValidator_2_now {
 
     private val threeHours = Duration.ofHours(3)
 
-    fun validate(lightning: Lightning) {
-        val now = Instant.now()
+    fun validate(now: Instant, lightning: Lightning) {
         if (lightning.occuredAt.isBefore(now.minus(threeHours))) {
             throw IllegalArgumentException("lightning is too old")
         }

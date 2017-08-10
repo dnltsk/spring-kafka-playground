@@ -1,10 +1,9 @@
 package org.dnltsk.springkafka.playground.lightnings
 
-import org.dnltsk.springkafka.playground.lightnings.LightningType.CLOUD_TO_CLOUD
-import org.junit.Test
-import java.time.Instant
 import org.assertj.core.api.Assertions.*
+import org.junit.Test
 import java.time.Duration
+import java.time.Instant
 
 class LightningValidator_1_naiveTest {
 
@@ -34,6 +33,5 @@ class LightningValidator_1_naiveTest {
 
         assertThat(thrown).isInstanceOf(IllegalArgumentException::class.java)
         assertThat(thrown).hasMessage("lightning is too old")
-
     }
 }
