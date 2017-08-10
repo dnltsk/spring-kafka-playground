@@ -16,7 +16,6 @@ class LightningsRestControllerWebTest {
     @Autowired
     lateinit var restTemplate: TestRestTemplate
 
-
     @Test
     fun `lightnings endpoint is available`() {
         val response = restTemplate.getForEntity("/lightnings", List::class.java)
