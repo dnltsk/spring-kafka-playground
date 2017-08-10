@@ -20,10 +20,10 @@ class LightningListener @Autowired constructor(
 
     @KafkaListener(topics = arrayOf("test-events"), containerFactory = "simpleKafkaListenerContainerFactory")
     fun lightningListener(message: String) {
-        val incomingLightning: Lightning = try {
-            objectMapper.readValue(message)
+        val incomingLightning = try {
+            objectMapper.readValue(message, Lightning::class.java)
         } catch (e: Throwable) {
-            LOG.error("cannot deserialize lightning from $message")
+            LOG.error("cannot deserialize lightning from $message", e)
             return
         }
         lightningValidator.validate(incomingLightning)
