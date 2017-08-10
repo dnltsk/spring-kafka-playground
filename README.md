@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/dnltsk/spring-kafka-playground.svg?branch=master)](https://travis-ci.org/dnltsk/spring-kafka-playground)
+[![codebeat badge](https://codebeat.co/badges/555afdb7-034d-436c-84b6-014402b445eb)](https://codebeat.co/projects/github-com-dnltsk-spring-kafka-playground-master)
+[![codecov](https://codecov.io/gh/dnltsk/spring-kafka-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/dnltsk/spring-kafka-playground)
+
 # spring-kafka-playground
 
 Have fun with spring-kafka 
@@ -10,8 +14,6 @@ Main Features:
 * ~~Cache warm-up on start-up~~
 * ~~Cache clean up of outdated messages~~
 
-
-
 ## start
 
 1. start Kafka<br>
@@ -23,3 +25,7 @@ Main Features:
   * create a message: `kafka-client/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic the-test --from-beginning`<br>
     followed by {"name":"foo","message":"bar"} (return)
   * load all messages: `kafka-client/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-events --from-beginning`
+  
+## resources
+
+* https://github.com/eugenp/tutorials/tree/master/spring-kafka
