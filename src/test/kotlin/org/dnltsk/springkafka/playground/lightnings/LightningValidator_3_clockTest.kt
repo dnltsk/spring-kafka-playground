@@ -1,7 +1,6 @@
 package org.dnltsk.springkafka.playground.lightnings
 
 import org.assertj.core.api.Assertions
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.mockito.InjectMocks
@@ -38,6 +37,14 @@ class LightningValidator_3_clockTest {
     fun `1h old lightnings should be valid`() {
 
         val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T11:00:00Z"))
+
+        Assertions.assertThatCode { validator.validate(validLightning) }.doesNotThrowAnyException()
+    }
+
+    @Test
+    fun `3h old lightnings should be valid`() {
+
+        val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T09:00:00Z"))
 
         Assertions.assertThatCode { validator.validate(validLightning) }.doesNotThrowAnyException()
     }
