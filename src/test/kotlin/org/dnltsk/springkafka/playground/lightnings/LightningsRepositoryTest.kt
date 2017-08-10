@@ -29,9 +29,9 @@ class LightningsRepositoryTest {
 
     @Test
     fun `added lightnigs are part are loadable`() {
-        repository.addLightning(sampleLightning.copy(occuredAt = Instant.parse("2016-01-01T00:00:00Z")))
-        repository.addLightning(sampleLightning.copy(occuredAt = Instant.parse("2017-01-01T00:00:00Z")))
-        repository.addLightning(sampleLightning.copy(occuredAt = Instant.parse("2018-01-01T00:00:00Z")))
+        repository.addLightning(LIGHTNING_2016)
+        repository.addLightning(LIGHTNING_2017)
+        repository.addLightning(LIGHTNING_2018)
 
         val lightnings = repository.getLightnings()
 

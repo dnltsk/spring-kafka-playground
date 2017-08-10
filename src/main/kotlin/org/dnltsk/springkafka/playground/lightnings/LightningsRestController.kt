@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class LightningsRestClient @Autowired constructor(
+class LightningsRestController @Autowired constructor(
         val lightningsRepository: LightningsRepository
 ){
 

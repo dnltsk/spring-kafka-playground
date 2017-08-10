@@ -12,7 +12,7 @@ class LightningValidatorTest {
     @Test
     fun `foo test`() {
         val lightning = Lightning(
-                occuredAt = Instant.parse("2017-08-10T20:27:42Z"),
+                occuredAt = Instant.now(),
                 type = CLOUD_TO_CLOUD,
                 currentInAmpere = 8000.0,
                 location = Location(13.3888599, 52.5170365)
