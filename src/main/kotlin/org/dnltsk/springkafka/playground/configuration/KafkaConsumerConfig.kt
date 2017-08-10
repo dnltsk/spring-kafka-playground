@@ -22,6 +22,7 @@ class KafkaConsumerConfig {
         val props = HashMap<String, Any>()
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress)
         props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId)
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer::class.java)
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer::class.java)
         return DefaultKafkaConsumerFactory(props)
@@ -30,7 +31,7 @@ class KafkaConsumerConfig {
     @Bean
     fun simpleKafkaListenerContainerFactory(): ConcurrentKafkaListenerContainerFactory<String, String> {
         val factory = ConcurrentKafkaListenerContainerFactory<String, String>()
-        factory.consumerFactory = consumerFactory("foo")
+        factory.consumerFactory = consumerFactory("foo-3")
         return factory
     }
 

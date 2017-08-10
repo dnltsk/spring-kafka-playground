@@ -1,6 +1,6 @@
 package org.dnltsk.springkafka.playground
 
-data class IncomingEvent constructor(
+data class IncomingLightning constructor(
         val name: String,
         val message: String
 )

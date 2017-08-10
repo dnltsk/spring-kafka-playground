@@ -12,16 +12,6 @@ fun main(args: Array<String>) {
 }
 
 @SpringBootApplication
-class DemoApplication @Autowired constructor(
-        private val objectMapper: ObjectMapper
-){
-
-    @KafkaListener(topics = arrayOf("test-events"), containerFactory = "simpleKafkaListenerContainerFactory")
-    fun eventListener(message: String) {
-        val incomingEvent: IncomingEvent = objectMapper.readValue(message)
-        println("incoming Event: $incomingEvent")
-    }
-
-}
+class DemoApplication
 
 

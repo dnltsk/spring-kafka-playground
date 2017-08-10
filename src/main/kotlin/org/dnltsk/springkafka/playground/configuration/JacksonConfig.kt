@@ -17,8 +17,8 @@ class JacksonConfig{
     fun jsonObjectMapper(): ObjectMapper {
         return Jackson2ObjectMapperBuilder.json()
                 .serializationInclusion(JsonInclude.Include.NON_NULL) // Don’t include null values
-                .featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS) //ISODate
                 .featuresToEnable(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES)
+                .featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS) //ISODate
                 .modules(
                         JSR310Module(),
                         KotlinModule())
