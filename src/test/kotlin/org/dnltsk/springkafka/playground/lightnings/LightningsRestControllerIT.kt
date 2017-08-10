@@ -18,12 +18,10 @@ class LightningsRestControllerIT {
 
 
     @Test
-    @Suppress("UNCHECKED_CAST")
-    fun findAll() {
+    fun `lightnings endpoint is available`() {
         val response = restTemplate.getForEntity("/lightnings", List::class.java)
 
         assertThat(response.statusCode).isEqualTo(HttpStatus.OK)
-        assertThat(response.body as List<Lightning>).hasSize(0)
     }
 
 }
