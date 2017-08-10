@@ -6,7 +6,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.InjectMocks
 import org.mockito.Mock
-import org.mockito.Mockito
+import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
 class LightningsRestControllerTest {
@@ -24,7 +24,7 @@ class LightningsRestControllerTest {
 
     @Test
     fun `controller loads all lightnings`() {
-        Mockito.`when`(repository.getLightnings())
+        `when`(repository.getLightnings())
                 .thenReturn(listOf(LIGHTNING_2016, LIGHTNING_2017, LIGHTNING_2018))
 
         val lightnings = controller.getLightnings()

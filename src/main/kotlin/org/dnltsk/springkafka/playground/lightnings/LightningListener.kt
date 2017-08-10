@@ -10,6 +10,7 @@ class LightningListener @Autowired constructor(
         val lightningsRepository: LightningsRepository,
         val lightningValidator_1_naive: LightningValidator_1_naive,
         val lightningValidator_2_now: LightningValidator_2_now,
+        val lightningValidator_3_clock: LightningValidator_3_clock,
         val objectMapper: ObjectMapper
 ) {
 
@@ -24,7 +25,8 @@ class LightningListener @Autowired constructor(
             return
         }
         //lightningValidator_1_naive.validate(incomingLightning)
-        lightningValidator_2_now.validate(Instant.now(), incomingLightning)
+        //lightningValidator_2_now.validate(Instant.now(), incomingLightning)
+        lightningValidator_3_clock.validate(incomingLightning)
         lightningsRepository.addLightning(incomingLightning)
     }
 
