@@ -1,7 +1,6 @@
 package org.dnltsk.springkafka.playground.lightnings
 
 import org.assertj.core.api.Assertions.assertThat
-import org.dnltsk.springkafka.playground.lightnings.repository.LightningsRepository
 import org.junit.Before
 import org.junit.Test
 import java.time.Instant
@@ -23,13 +22,13 @@ class LightningsRepositoryTest {
     )
 
     @Test
-    fun `repo starts empty`() {
+    fun `repository starts empty`() {
         val lightnings = repository.getLightnings()
         assertThat(lightnings).isEmpty()
     }
 
     @Test
-    fun `added lightnigs are part are loadable`() {
+    fun `added lightnings are part are loadable`() {
         repository.addLightning(LIGHTNING_2016)
         repository.addLightning(LIGHTNING_2017)
         repository.addLightning(LIGHTNING_2018)
@@ -38,7 +37,7 @@ class LightningsRepositoryTest {
     }
 
     @Test
-    fun `added lightnigs are part are removable`() {
+    fun `added lightnings are part are removable`() {
         repository.addLightning(LIGHTNING_2016)
         repository.addLightning(LIGHTNING_2017)
         repository.addLightning(LIGHTNING_2018)

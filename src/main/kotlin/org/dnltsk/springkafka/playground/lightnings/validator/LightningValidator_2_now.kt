@@ -1,4 +1,4 @@
-package org.dnltsk.springkafka.playground.lightnings.repository
+package org.dnltsk.springkafka.playground.lightnings.validator
 
 import org.dnltsk.springkafka.playground.lightnings.Lightning
 import org.springframework.stereotype.Component
