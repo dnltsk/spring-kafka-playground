@@ -23,9 +23,9 @@ class LightningListener @Autowired constructor(
         LOG.info("incomming lightning: $message")
         val incomingLightning = objectMapper.readValue(message, Lightning::class.java)
 
-        // lightningValidator_1_naive.validateOccuredAt(incomingLightning)
-        // lightningValidator_2_now.validateOccuredAt(Instant.now(), incomingLightning)
-        lightningValidator_3_clock.validateOccuredAt(incomingLightning)
+        // lightningValidator_1_naive.validateOccurredAt(incomingLightning)
+        // lightningValidator_2_now.validateOccurredAt(Instant.now(), incomingLightning)
+        lightningValidator_3_clock.validateOccurredAt(incomingLightning)
 
         lightningsRepository.addLightning(incomingLightning)
 

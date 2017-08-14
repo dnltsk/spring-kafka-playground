@@ -15,7 +15,7 @@ class LightningsRepositoryTest {
     }
 
     val sampleLightning = Lightning(
-            occuredAt = Instant.parse("2017-08-10T20:27:42Z"),
+            occurredAt = Instant.parse("2017-08-10T20:27:42Z"),
             type = LightningType.CLOUD_TO_CLOUD,
             currentInAmpere = 8000.0,
             location = Location(13.3888599, 52.5170365)

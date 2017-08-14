@@ -14,15 +14,15 @@ class LightningValidator_3_clock @Autowired constructor(
 
     private val threeHours = Duration.ofHours(3)
 
-    fun validateOccuredAt(lightning: Lightning) {
+    fun validateOccurredAt(lightning: Lightning) {
         if (isOutdated(lightning)) {
-            throw IllegalArgumentException("lightning is too old")
+            throw IllegalArgumentException("lightning is outdated!")
         }
     }
 
     fun isOutdated(lightning: Lightning): Boolean {
         val now = Instant.now(clock)
-        return (lightning.occuredAt.isBefore(now.minus(threeHours)))
+        return (lightning.occurredAt.isBefore(now.minus(threeHours)))
     }
 
 }
