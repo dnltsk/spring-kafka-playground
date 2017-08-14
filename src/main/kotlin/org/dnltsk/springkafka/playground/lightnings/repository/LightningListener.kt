@@ -18,7 +18,7 @@ class LightningListener @Autowired constructor(
 
     private val LOG = LoggerFactory.getLogger(this::class.java)
 
-    @KafkaListener(topics = arrayOf("test-events"), containerFactory = "simpleKafkaListenerContainerFactory")
+    @KafkaListener(topics = arrayOf("lightning-events"), containerFactory = "lightningKafkaListenerContainerFactory")
     fun lightningListener(message: String) {
         LOG.info("incomming lightning: $message")
 
@@ -36,6 +36,7 @@ class LightningListener @Autowired constructor(
             lightningsRepository.addLightning(incomingLightning)
         } catch(e: Throwable) {
             LOG.error(e.message)
+            return
         }
     }
 
