@@ -1,7 +1,5 @@
 package org.dnltsk.springkafka.playground.configuration
 
-import java.util.HashMap;
-
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -10,10 +8,10 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import java.util.*
 
-
-@EnableKafka
 @Configuration
+@EnableKafka
 class KafkaConsumerConfig {
 
     private val bootstrapAddress: String = "localhost:9092"
@@ -31,7 +29,7 @@ class KafkaConsumerConfig {
     @Bean
     fun simpleKafkaListenerContainerFactory(): ConcurrentKafkaListenerContainerFactory<String, String> {
         val factory = ConcurrentKafkaListenerContainerFactory<String, String>()
-        factory.consumerFactory = consumerFactory("foo-3")
+        factory.consumerFactory = consumerFactory("foo-" + System.currentTimeMillis())
         return factory
     }
 

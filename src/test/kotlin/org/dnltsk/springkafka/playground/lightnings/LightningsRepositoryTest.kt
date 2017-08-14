@@ -1,6 +1,7 @@
 package org.dnltsk.springkafka.playground.lightnings
 
 import org.assertj.core.api.Assertions.assertThat
+import org.dnltsk.springkafka.playground.lightnings.repository.LightningsRepository
 import org.junit.Before
 import org.junit.Test
 import java.time.Instant
@@ -33,9 +34,18 @@ class LightningsRepositoryTest {
         repository.addLightning(LIGHTNING_2017)
         repository.addLightning(LIGHTNING_2018)
 
-        val lightnings = repository.getLightnings()
-
-        assertThat(lightnings).hasSize(3)
+        assertThat(repository.getLightnings()).hasSize(3)
     }
 
+    @Test
+    fun `added lightnigs are part are removable`() {
+        repository.addLightning(LIGHTNING_2016)
+        repository.addLightning(LIGHTNING_2017)
+        repository.addLightning(LIGHTNING_2018)
+
+        repository.removeLightning(LIGHTNING_2017)
+
+        assertThat(repository.getLightnings()).hasSize(2)
+
+    }
 }

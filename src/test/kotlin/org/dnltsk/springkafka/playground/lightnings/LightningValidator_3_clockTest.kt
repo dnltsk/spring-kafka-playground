@@ -1,6 +1,7 @@
 package org.dnltsk.springkafka.playground.lightnings
 
 import org.assertj.core.api.Assertions
+import org.dnltsk.springkafka.playground.lightnings.repository.LightningValidator_3_clock
 import org.junit.Before
 import org.junit.Test
 import org.mockito.InjectMocks
@@ -29,7 +30,7 @@ class LightningValidator_3_clockTest {
         val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T12:00:00Z"))
 
         Assertions.assertThatCode {
-            validator.validate(validLightning)
+            validator.validateOccuredAt(validLightning)
         }.doesNotThrowAnyException()
     }
 
@@ -38,7 +39,7 @@ class LightningValidator_3_clockTest {
 
         val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T11:00:00Z"))
 
-        Assertions.assertThatCode { validator.validate(validLightning) }.doesNotThrowAnyException()
+        Assertions.assertThatCode { validator.validateOccuredAt(validLightning) }.doesNotThrowAnyException()
     }
 
     @Test
@@ -46,14 +47,14 @@ class LightningValidator_3_clockTest {
 
         val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T09:00:00Z"))
 
-        Assertions.assertThatCode { validator.validate(validLightning) }.doesNotThrowAnyException()
+        Assertions.assertThatCode { validator.validateOccuredAt(validLightning) }.doesNotThrowAnyException()
     }
 
     @Test
     fun `4h old lightnings should be invalid`() {
         val invalidLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T08:00:00Z"))
 
-        val thrown = Assertions.catchThrowable({ validator.validate(invalidLightning) })
+        val thrown = Assertions.catchThrowable({ validator.validateOccuredAt(invalidLightning) })
 
         Assertions.assertThat(thrown).isInstanceOf(IllegalArgumentException::class.java)
         Assertions.assertThat(thrown).hasMessage("lightning is too old")

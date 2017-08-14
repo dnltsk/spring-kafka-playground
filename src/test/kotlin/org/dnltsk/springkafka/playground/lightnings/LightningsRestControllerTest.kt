@@ -2,6 +2,7 @@ package org.dnltsk.springkafka.playground.lightnings
 
 import com.nhaarman.mockito_kotlin.verify
 import org.assertj.core.api.Assertions.assertThat
+import org.dnltsk.springkafka.playground.lightnings.repository.LightningsRepository
 import org.junit.Before
 import org.junit.Test
 import org.mockito.InjectMocks

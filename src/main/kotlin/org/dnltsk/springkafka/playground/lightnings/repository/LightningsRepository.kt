@@ -1,6 +1,6 @@
-package org.dnltsk.springkafka.playground.lightnings
+package org.dnltsk.springkafka.playground.lightnings.repository
 
-import org.dnltsk.springkafka.playground.IncomingLightning
+import org.dnltsk.springkafka.playground.lightnings.Lightning
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -14,6 +14,10 @@ class LightningsRepository {
 
     fun addLightning(incomingLightning: Lightning) {
         lightnings.add(incomingLightning)
+    }
+
+    fun removeLightning(lightning: Lightning){
+        lightnings.remove(lightning)
     }
 
 }

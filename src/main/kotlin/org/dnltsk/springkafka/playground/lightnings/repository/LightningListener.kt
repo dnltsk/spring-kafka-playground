@@ -1,11 +1,13 @@
-package org.dnltsk.springkafka.playground.lightnings
+package org.dnltsk.springkafka.playground.lightnings.repository
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import org.dnltsk.springkafka.playground.lightnings.Lightning
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.kafka.annotation.KafkaListener
-import java.time.Instant
+import org.springframework.stereotype.Component
 
+@Component
 class LightningListener @Autowired constructor(
         val lightningsRepository: LightningsRepository,
         val lightningValidator_1_naive: LightningValidator_1_naive,
@@ -18,16 +20,23 @@ class LightningListener @Autowired constructor(
 
     @KafkaListener(topics = arrayOf("test-events"), containerFactory = "simpleKafkaListenerContainerFactory")
     fun lightningListener(message: String) {
+        LOG.info("incomming lightning: $message")
+
         val incomingLightning = try {
             objectMapper.readValue(message, Lightning::class.java)
         } catch (e: Throwable) {
-            LOG.error("cannot deserialize lightning from $message", e)
+            LOG.error("cannot deserialize lightning from $message")
             return
         }
-        //lightningValidator_1_naive.validate(incomingLightning)
-        //lightningValidator_2_now.validate(Instant.now(), incomingLightning)
-        lightningValidator_3_clock.validate(incomingLightning)
-        lightningsRepository.addLightning(incomingLightning)
+
+        try {
+            //lightningValidator_1_naive.validateOccuredAt(incomingLightning)
+            //lightningValidator_2_now.validateOccuredAt(Instant.now(), incomingLightning)
+            lightningValidator_3_clock.validateOccuredAt(incomingLightning)
+            lightningsRepository.addLightning(incomingLightning)
+        } catch(e: Throwable) {
+            LOG.error(e.message)
+        }
     }
 
 }

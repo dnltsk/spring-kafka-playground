@@ -1,6 +1,7 @@
 package org.dnltsk.springkafka.playground.lightnings
 
 import org.assertj.core.api.Assertions.*
+import org.dnltsk.springkafka.playground.lightnings.repository.LightningValidator_2_now
 import org.junit.Test
 import java.time.Instant
 

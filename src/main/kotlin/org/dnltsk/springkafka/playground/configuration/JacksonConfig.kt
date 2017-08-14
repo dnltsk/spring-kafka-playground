@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
 
 @Configuration
-class JacksonConfig{
+class JacksonConfig {
 
     @Bean(name = arrayOf("OBJECT_MAPPER_BEAN"))
     fun jsonObjectMapper(): ObjectMapper {
