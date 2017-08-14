@@ -51,6 +51,5 @@ class LightningValidator_1_naiveTest {
         val thrown = catchThrowable({ validator.validate(invalidLightning) })
 
         assertThat(thrown).isInstanceOf(IllegalArgumentException::class.java)
-        assertThat(thrown).hasMessage("lightning is too old")
     }
 }

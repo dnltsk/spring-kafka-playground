@@ -57,7 +57,6 @@ class LightningValidator_3_clockTest {
         val thrown = Assertions.catchThrowable({ validator.validateOccuredAt(invalidLightning) })
 
         Assertions.assertThat(thrown).isInstanceOf(IllegalArgumentException::class.java)
-        Assertions.assertThat(thrown).hasMessage("lightning is too old")
 
     }
 
