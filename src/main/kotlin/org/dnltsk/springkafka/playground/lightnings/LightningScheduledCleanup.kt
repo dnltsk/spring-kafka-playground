@@ -14,7 +14,7 @@ class LightningScheduledCleanup @Autowired constructor(
     val LOG = LoggerFactory.getLogger(this::class.java)
 
     @Scheduled(fixedRate = 10_000, initialDelay = 10_000)
-    fun cleanup() {
+    fun cleanupOutdated() {
         lightningRepository
                 .getLightnings()
                 .filter(lightningValidator::isOutdated)

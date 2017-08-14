@@ -9,13 +9,13 @@ data class Lightning constructor(
         val location: Location
 )
 
+data class Location constructor(
+        val lon: Double,
+        val lat: Double
+)
+
 enum class LightningType {
     CLOUD_TO_GROUND,
     GROUND_TO_CLOUD,
     CLOUD_TO_CLOUD
 }
-
-data class Location constructor(
-        val lon: Double,
-        val lat: Double
-)

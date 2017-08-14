@@ -41,6 +41,7 @@ dependencies {
     compile('com.fasterxml.jackson.core:jackson-databind')
     compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.0')
     compile('com.fasterxml.jackson.module:jackson-module-kotlin:2.8.7')
+    compile('de.grundid.opendatalab:geojson-jackson:1.8')
 
     compile('org.springframework.kafka:spring-kafka:1.1.3.RELEASE')
 

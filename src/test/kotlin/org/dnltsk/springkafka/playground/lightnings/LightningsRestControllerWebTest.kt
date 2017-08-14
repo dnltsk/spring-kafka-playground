@@ -1,6 +1,7 @@
 package org.dnltsk.springkafka.playground.lightnings
 
 import org.assertj.core.api.Assertions.assertThat
+import org.geojson.FeatureCollection
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,7 +19,7 @@ class LightningsRestControllerWebTest {
 
     @Test
     fun `lightnings endpoint is available`() {
-        val response = restTemplate.getForEntity("/lightnings", List::class.java)
+        val response = restTemplate.getForEntity("/lightnings", FeatureCollection::class.java)
 
         assertThat(response.statusCode).isEqualTo(HttpStatus.OK)
     }
