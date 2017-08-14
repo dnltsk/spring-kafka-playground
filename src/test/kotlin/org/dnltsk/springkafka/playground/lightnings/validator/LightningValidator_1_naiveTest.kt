@@ -32,10 +32,10 @@ class LightningValidator_1_naiveTest {
     }
 
     @Test
-    fun `2h 59m old lightnings should be valid`() {
+    fun `2h 59m 59s old lightnings should be valid`() {
         val nowMinus3Hour = Instant.now().minus(Duration.ofHours(3))
-        val nowMinus2h59m = nowMinus3Hour.plus(Duration.ofMinutes(1))
-        val validLightning = LIGHTNING_2016.copy(occuredAt = nowMinus2h59m)
+        val nowMinus2h59m59s = nowMinus3Hour.plus(Duration.ofSeconds(1))
+        val validLightning = LIGHTNING_2016.copy(occuredAt = nowMinus2h59m59s)
         assertThatCode { validator.validateOccuredAt(validLightning) }.doesNotThrowAnyException()
     }
 
