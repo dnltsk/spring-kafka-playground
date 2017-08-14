@@ -10,12 +10,15 @@ class LightningValidator_1_naive {
 
     private val threeHours = Duration.ofHours(3)
 
-    fun validate(lightning: Lightning){
-        val now = Instant.now()
-        if (lightning.occuredAt.isBefore(now.minus(threeHours))) {
+    fun validateOccuredAt(lightning: Lightning){
+        if (isOutdated(lightning)) {
             throw IllegalArgumentException("lightning is too old")
         }
     }
 
+    fun isOutdated(lightning: Lightning): Boolean {
+        val now = Instant.now()
+        return (lightning.occuredAt.isBefore(now.minus(threeHours)))
+    }
 
 }

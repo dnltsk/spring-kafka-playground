@@ -15,7 +15,7 @@ class LightningValidator_2_nowTest {
     fun `fresh lightnings should be valid`() {
         val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T12:00:00Z"))
         assertThatCode {
-            validator.validate(TEST_NOW, validLightning)
+            validator.validateOccuredAt(TEST_NOW, validLightning)
         }.doesNotThrowAnyException()
     }
 
@@ -24,14 +24,14 @@ class LightningValidator_2_nowTest {
 
         val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T11:00:00Z"))
 
-        assertThatCode { validator.validate(TEST_NOW, validLightning) }.doesNotThrowAnyException()
+        assertThatCode { validator.validateOccuredAt(TEST_NOW, validLightning) }.doesNotThrowAnyException()
     }
 
     @Test
     fun `3h old lightnings should be valid`() {
         val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T09:00:00Z"))
 
-        assertThatCode { validator.validate(TEST_NOW, validLightning) }
+        assertThatCode { validator.validateOccuredAt(TEST_NOW, validLightning) }
                 .doesNotThrowAnyException()
     }
 
@@ -39,7 +39,7 @@ class LightningValidator_2_nowTest {
     fun `4h old lightnings should be invalid`() {
         val invalidLightning = LIGHTNING_2016.copy(occuredAt = Instant.parse("2017-01-01T08:00:00Z"))
 
-        val thrown = catchThrowable({ validator.validate(TEST_NOW, invalidLightning) })
+        val thrown = catchThrowable({ validator.validateOccuredAt(TEST_NOW, invalidLightning) })
 
         assertThat(thrown).isInstanceOf(IllegalArgumentException::class.java)
     }

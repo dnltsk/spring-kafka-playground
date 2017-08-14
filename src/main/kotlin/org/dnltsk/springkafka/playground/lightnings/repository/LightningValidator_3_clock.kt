@@ -9,7 +9,7 @@ import java.time.Instant
 
 @Component
 class LightningValidator_3_clock @Autowired constructor(
-        val clock: Clock
+        val clock: Clock // comes from ClockConfig
 ) {
 
     private val threeHours = Duration.ofHours(3)

@@ -15,7 +15,7 @@ class LightningValidator_1_naiveTest {
     fun `fresh lightnings should be valid`() {
         val validLightning = LIGHTNING_2016.copy(occuredAt = Instant.now())
 
-        assertThatCode { validator.validate(validLightning) }.doesNotThrowAnyException()
+        assertThatCode { validator.validateOccuredAt(validLightning) }.doesNotThrowAnyException()
     }
 
     @Test
@@ -23,7 +23,7 @@ class LightningValidator_1_naiveTest {
         val nowMinus1Hour = Instant.now().minus(Duration.ofHours(1))
         val validLightning = LIGHTNING_2016.copy(occuredAt = nowMinus1Hour)
 
-        assertThatCode { validator.validate(validLightning) }.doesNotThrowAnyException()
+        assertThatCode { validator.validateOccuredAt(validLightning) }.doesNotThrowAnyException()
     }
 
     @Test @Ignore //ignored because we are 3h and some millis behind now :(
@@ -31,7 +31,7 @@ class LightningValidator_1_naiveTest {
         val nowMinus3Hour = Instant.now().minus(Duration.ofHours(3))
         val validLightning = LIGHTNING_2016.copy(occuredAt = nowMinus3Hour)
 
-        assertThatCode { validator.validate(validLightning) }.doesNotThrowAnyException()
+        assertThatCode { validator.validateOccuredAt(validLightning) }.doesNotThrowAnyException()
     }
 
     @Test
@@ -40,7 +40,7 @@ class LightningValidator_1_naiveTest {
         val nowMinus2h59m = nowMinus3Hour.plus(Duration.ofMinutes(1))
         val validLightning = LIGHTNING_2016.copy(occuredAt = nowMinus2h59m)
 
-        assertThatCode { validator.validate(validLightning) }.doesNotThrowAnyException()
+        assertThatCode { validator.validateOccuredAt(validLightning) }.doesNotThrowAnyException()
     }
 
     @Test
@@ -48,7 +48,7 @@ class LightningValidator_1_naiveTest {
         val nowMinus4Hours = Instant.now().minus(Duration.ofHours(4))
         val invalidLightning = LIGHTNING_2016.copy(occuredAt = nowMinus4Hours)
 
-        val thrown = catchThrowable({ validator.validate(invalidLightning) })
+        val thrown = catchThrowable({ validator.validateOccuredAt(invalidLightning) })
 
         assertThat(thrown).isInstanceOf(IllegalArgumentException::class.java)
     }
