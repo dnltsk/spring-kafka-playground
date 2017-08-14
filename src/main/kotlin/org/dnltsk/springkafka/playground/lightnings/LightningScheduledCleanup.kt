@@ -4,9 +4,9 @@ import org.dnltsk.springkafka.playground.lightnings.validator.LightningValidator
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.scheduling.annotation.Scheduled
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 
-@Service
+@Component
 class LightningScheduledCleanup @Autowired constructor(
         val lightningRepository: LightningsRepository,
         val lightningValidator: LightningValidator_3_clock

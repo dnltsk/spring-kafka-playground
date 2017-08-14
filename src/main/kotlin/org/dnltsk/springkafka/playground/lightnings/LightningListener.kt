@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component
 @Component
 class LightningListener @Autowired constructor(
         val lightningsRepository: LightningsRepository,
-//        val lightningValidator_1_naive: LightningValidator_1_naive,
-//        val lightningValidator_2_now: LightningValidator_2_now,
+        // val lightningValidator_1_naive: LightningValidator_1_naive,
+        // val lightningValidator_2_now: LightningValidator_2_now,
         val lightningValidator_3_clock: LightningValidator_3_clock,
         val objectMapper: ObjectMapper
 ) {
@@ -21,23 +21,14 @@ class LightningListener @Autowired constructor(
     @KafkaListener(topics = arrayOf("lightning-events"), containerFactory = "lightningKafkaListenerContainerFactory")
     fun lightningListener(message: String) {
         LOG.info("incomming lightning: $message")
+        val incomingLightning = objectMapper.readValue(message, Lightning::class.java)
 
-        val incomingLightning = try {
-            objectMapper.readValue(message, Lightning::class.java)
-        } catch (e: Throwable) {
-            LOG.error("cannot deserialize lightning from $message")
-            return
-        }
+        // lightningValidator_1_naive.validateOccuredAt(incomingLightning)
+        // lightningValidator_2_now.validateOccuredAt(Instant.now(), incomingLightning)
+        lightningValidator_3_clock.validateOccuredAt(incomingLightning)
 
-        try {
-//            lightningValidator_1_naive.validateOccuredAt(incomingLightning)
-//            lightningValidator_2_now.validateOccuredAt(Instant.now(), incomingLightning)
-            lightningValidator_3_clock.validateOccuredAt(incomingLightning)
-            lightningsRepository.addLightning(incomingLightning)
-        } catch(e: Throwable) {
-            LOG.error(e.message)
-            return
-        }
+        lightningsRepository.addLightning(incomingLightning)
+
     }
 
 }
