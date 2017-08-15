@@ -27,7 +27,7 @@ class KafkaConsumerConfig {
     @Bean
     fun lightningKafkaListenerContainerFactory(): ConcurrentKafkaListenerContainerFactory<String, String> {
         val factory = ConcurrentKafkaListenerContainerFactory<String, String>()
-        factory.consumerFactory = consumerFactory("foo-" + System.currentTimeMillis())
+        factory.consumerFactory = consumerFactory("lightning-service-" + System.currentTimeMillis())
         return factory
     }
 
