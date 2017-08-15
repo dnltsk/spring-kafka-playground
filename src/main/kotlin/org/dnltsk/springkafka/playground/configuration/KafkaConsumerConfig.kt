@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory
 import org.springframework.kafka.core.ConsumerFactory
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory
+import java.time.Instant
 import java.util.*
 
 @Configuration
@@ -27,7 +28,7 @@ class KafkaConsumerConfig {
     @Bean
     fun lightningKafkaListenerContainerFactory(): ConcurrentKafkaListenerContainerFactory<String, String> {
         val factory = ConcurrentKafkaListenerContainerFactory<String, String>()
-        factory.consumerFactory = consumerFactory("lightning-service-" + System.currentTimeMillis())
+        factory.consumerFactory = consumerFactory("lightning-service-" + Instant.now().toString())
         return factory
     }
 
