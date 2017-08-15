@@ -14,16 +14,32 @@ Main Features:
 * Cache warm-up on start-up
 * Cache clean up of outdated messages
 
-## start
+## build
 
-1. start Kafka `docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 spotify/kafka`
+* `gradle build`
 
-2. debug
-  * create a topic: `kafka-client/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic lightning-events`
-  * list topics: `kafka-client/bin/kafka-topics.sh --list --zookeeper localhost:2181`
-  * create a message: `kafka-client/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic lightning-events`<br>
-    followed by `{"occuredAt": "2017-08-14T10:59:52Z","type": "CLOUD_TO_GROUND","currentInAmpere": 12,"location": {"longitude":13, "latitude":52}}` (return)
-  * load all messages: `kafka-client/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic lightning-events --from-beginning`
+## start 
+
+* `java -jar build/libs/spring-kafka-playground-*.jar`
+* access http://localhost:8080/lightnings
+
+## start kafka
+
+* `docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 spotify/kafka`
+
+## create lightning events
+
+
+* create a topic:<br> 
+  `kafka-client/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic lightning-events`
+* list topics:<br>
+  `kafka-client/bin/kafka-topics.sh --list --zookeeper localhost:2181`
+* create a message:<br>
+  `kafka-client/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic lightning-events`<br>
+  followed by<br>
+  `{"occurredAt": "2017-08-15T07:16:55Z","type": "CLOUD_TO_GROUND","currentInAmpere": 12,"location": {"lon":12, "lat":53}}` (return)
+* load all messages:<br>
+  `kafka-client/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic lightning-events --from-beginning`
   
 ## resources
 
