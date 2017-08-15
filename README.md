@@ -38,7 +38,7 @@ Main Features:
   `kafka-client/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic lightning-events`<br>
   followed by<br>
   `{"occurredAt": "2017-08-15T07:16:55Z","type": "CLOUD_TO_GROUND","currentInAmpere": 12,"location": {"lon":12, "lat":53}}` (return)<br>
-  <span style="color:orange">(adjust occurredAt to now)</span>
+  **don't forget to change occurredAt to "now"!**
 * load all messages:<br>
   `kafka-client/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic lightning-events --from-beginning`
   
