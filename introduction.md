@@ -28,7 +28,7 @@
 * consumer apps
 * business "decision support"
 
-## daily challenges
+## our daily challenges
 
 * quality verification
 * spatial context
