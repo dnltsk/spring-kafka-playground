@@ -4,6 +4,13 @@
 
 * GIS Engineer at MeteoGroup GmbH
 
+## our products
+
+* maps, charts, tables, texts, reports
+* radio-/broadcast- moderation
+* consumer apps
+* business "decision support"
+
 ## our data
 
 ### observation data
@@ -20,13 +27,6 @@
 * station based (~every hour)
 * numerical weather prediction models (~every 6h (up to 20GB))
 * radar data
-
-## our products
-
-* maps, charts, tables, texts, reports
-* radio-/broadcast- moderation
-* consumer apps
-* business "decision support"
 
 ## our daily challenges
 
