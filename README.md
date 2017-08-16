@@ -2,7 +2,7 @@
 [![codebeat badge](https://codebeat.co/badges/555afdb7-034d-436c-84b6-014402b445eb)](https://codebeat.co/projects/github-com-dnltsk-spring-kafka-playground-master)
 [![codecov](https://codecov.io/gh/dnltsk/spring-kafka-playground/branch/master/graph/badge.svg)](https://codecov.io/gh/dnltsk/spring-kafka-playground)
 
-# spring-kafka-playground - Have fun with spring-kafka 
+# spring-kafka-playground - having fun with spring-kafka 
 
 Application consumes time related event messages from a kafka topic
 
