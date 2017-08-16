@@ -7,9 +7,9 @@
 ## our products
 
 * maps, charts, tables, texts, reports
-* radio-/broadcast- moderation
 * consumer apps
 * business "decision support"
+* radio-/broadcast- moderation
 
 ## our data
 
