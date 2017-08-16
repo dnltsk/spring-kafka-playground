@@ -1,8 +1,9 @@
-# How to test time-based validations?
+# How do we test time-based validations?
 
 ## Daniel Teske - @dnltsk
 
 * GIS Engineer at MeteoGroup GmbH
+* using Kotlin in production since Sep 2016 (v.0...)
 
 ## our products
 

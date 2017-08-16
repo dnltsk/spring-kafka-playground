@@ -4,7 +4,7 @@ import com.nhaarman.mockito_kotlin.any
 import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
 import org.dnltsk.springkafka.playground.configuration.JacksonConfig
-import org.dnltsk.springkafka.playground.lightnings.validator.LightningValidator_3_clock
+import org.dnltsk.springkafka.playground.lightnings.validator.LightningValidator_1_naive
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -14,7 +14,7 @@ import org.mockito.MockitoAnnotations
 class LightningListenerTest {
 
     @Mock
-    lateinit var validator: LightningValidator_3_clock
+    lateinit var validator: LightningValidator_1_naive
 
     lateinit var repository: LightningsRepository
 

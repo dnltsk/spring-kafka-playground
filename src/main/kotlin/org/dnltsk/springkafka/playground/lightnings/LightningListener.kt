@@ -3,7 +3,7 @@ package org.dnltsk.springkafka.playground.lightnings
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.StringDeserializer
-import org.dnltsk.springkafka.playground.lightnings.validator.LightningValidator_3_clock
+import org.dnltsk.springkafka.playground.lightnings.validator.LightningValidator_1_naive
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
@@ -19,7 +19,7 @@ import java.util.*
 @Component
 class LightningListener @Autowired constructor(
         val lightningsRepository: LightningsRepository,
-        val lightningValidator: LightningValidator_3_clock,
+        val lightningValidator: LightningValidator_1_naive,
         val objectMapper: ObjectMapper
 ) {
 
