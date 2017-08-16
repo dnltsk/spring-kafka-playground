@@ -17,8 +17,8 @@
 
 * satellite data (~every 15min)
 * radar data (~every 5min)
-* weather stations (~every 5min)
-* road sensors (~every 1h)
+* weather station data (~every 5min)
+* road sensor data (~every 1h)
 * camera images (~evert 1h)
 * **lightnings (~1ms)**
 
@@ -26,10 +26,11 @@
 
 * station based (~every hour)
 * numerical weather prediction models (~every 6h (up to 20GB))
-* radar data
+* radar data (~every 5min)
 
 ## our daily challenges
 
+* huge amount of data
 * quality verification
 * spatial context
-* **temporal context** (issuedAt, validAt, validFrom, validUntil, occuredAt, contentPeriodFrom, contentPeriodUntil, ..)
+* **temporal context** (issuedAt, validAt, validFrom, validUntil, occurredAt, contentPeriodFrom, contentPeriodUntil, ..)
