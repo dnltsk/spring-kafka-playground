@@ -11,14 +11,15 @@
 * satellite data (~every 15min)
 * radar data (~every 5min)
 * weather stations (~every 5min)
-* **lightnings (~1ms)**
 * road sensors (~every 1h)
 * camera images (~evert 1h)
+* **lightnings (~1ms)**
 
 ### forecast data
 
 * station based (~every hour)
-* weather models (~every 6h (up to 20GB))
+* numerical weather prediction models (~every 6h (up to 20GB))
+* radar data
 
 ## our products
 
