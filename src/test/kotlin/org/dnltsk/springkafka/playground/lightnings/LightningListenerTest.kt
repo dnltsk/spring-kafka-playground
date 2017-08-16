@@ -30,19 +30,25 @@ class LightningListenerTest {
     }
 
     @Test
-    fun `valid message will add a lightning in repository`() {
+    fun `a valid message will affect the repository`() {
         Mockito.`when`(validator.isOutdated(any())).thenReturn(false)
         listener.lightningListener(validMessage)
         assertThat(repository.getLightnings()).hasSize(1)
     }
 
     @Test
-    fun `invalid message will not add a lightning in repository`() {
-        Mockito.`when`(validator.validateOccurredAt(any())).thenThrow(IllegalArgumentException("invalid!"))
-
+    fun `an outdated lightning will not affect the repository`() {
+        Mockito.`when`(validator.validateOccurredAt(any())).thenThrow(IllegalArgumentException())
         val thrown = Assertions.catchThrowable { listener.lightningListener(validMessage) }
+        assertThat(thrown).isInstanceOf(Throwable::class.java)
+        assertThat(repository.getLightnings()).hasSize(0)
+    }
 
-        assertThat(thrown).isInstanceOf(IllegalArgumentException::class.java)
+    @Test
+    fun `an invalid message will not affect the repository`() {
+        val invalidMessage = """{"foo":"bar"}"""
+        val thrown = Assertions.catchThrowable { listener.lightningListener(invalidMessage) }
+        assertThat(thrown).isInstanceOf(Throwable::class.java)
         assertThat(repository.getLightnings()).hasSize(0)
     }
 }
