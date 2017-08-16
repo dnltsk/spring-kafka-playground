@@ -27,3 +27,9 @@
 * radio-/broadcast- moderation
 * consumer apps
 * business "decision support"
+
+## daily challenges
+
+* quality verification
+* spatial context
+* **temporal context** (issuedAt, validAt, validFrom, validUntil, occuredAt, contentPeriodFrom, contentPeriodUntil, ..)
