@@ -21,13 +21,14 @@
 * weather station data (~every 5min)
 * road sensor data (~every 1h)
 * camera images (~evert 1h)
-* **lightnings (~1ms)**
+* **lightnings (continuously)**
 
 ### forecast data
 
 * station based (~every hour)
 * numerical weather prediction models (~every 6h)
 * radar data (~every 5min)
+* weather warnings (continuously)
 
 ## our daily challenges
 
