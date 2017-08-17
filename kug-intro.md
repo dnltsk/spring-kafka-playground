@@ -10,7 +10,7 @@
 * maps, charts, tables, texts, reports
 * consumer apps
 * business "decision support" systems
-* presentations on radio and broadcast shows 
+* presentations on radio and broadcast shows
 
 ## our data
 
@@ -22,6 +22,7 @@
 * road sensor data (~every 1h)
 * camera images (~evert 1h)
 * **lightnings (continuously)**
+* ...
 
 ### forecast data
 
@@ -29,6 +30,7 @@
 * numerical weather prediction models (~every 6h)
 * radar data (~every 5min)
 * weather warnings (continuously)
+* ...
 
 ## our daily challenges
 
@@ -37,3 +39,4 @@
 * spatial context
 * **temporal context**<br>
 (issuedAt, validAt, validFrom, validUntil, occurredAt, contentPeriodFrom, contentPeriodUntil, ..)
+* ...
