@@ -11,7 +11,7 @@ class LightningsRestController @Autowired constructor(
         val lightningsGeoJsonConverter: LightningsGeoJsonConverter
 ) {
 
-    @RequestMapping("/latest-lightnings")
+    @RequestMapping("/lightnings/latest")
     fun getLightnings(): FeatureCollection {
         return lightningsGeoJsonConverter.convert(lightningsRepository.getLightnings())
     }

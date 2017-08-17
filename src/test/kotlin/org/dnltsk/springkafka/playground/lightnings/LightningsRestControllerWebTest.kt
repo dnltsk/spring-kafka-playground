@@ -19,7 +19,7 @@ class LightningsRestControllerWebTest {
 
     @Test
     fun `lightnings endpoint is available`() {
-        val response = restTemplate.getForEntity("/latest-lightnings", FeatureCollection::class.java)
+        val response = restTemplate.getForEntity("/lightnings/latest", FeatureCollection::class.java)
 
         assertThat(response.statusCode).isEqualTo(HttpStatus.OK)
     }
