@@ -22,7 +22,7 @@
 * road sensor data (~every 1h)
 * camera images (~evert 1h)
 * **lightnings (continuously)**
-* ...
+* ..
 
 ### forecast data
 
@@ -30,7 +30,7 @@
 * numerical weather prediction models (~every 6h)
 * radar data (~every 5min)
 * weather warnings (continuously)
-* ...
+* ..
 
 ## our daily challenges
 
@@ -38,5 +38,5 @@
 * quality verification
 * spatial context
 * **temporal context**<br>
-(issuedAt, validAt, validFrom, validUntil, occurredAt, contentPeriodFrom, contentPeriodUntil, ..)
-* ...
+(issuedAt, validAt, validFrom, validUntil, occurredAt, contentPeriod, ..)
+* ..
