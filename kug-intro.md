@@ -3,7 +3,7 @@
 ## Daniel Teske - @dnltsk
 
 * GIS Engineer at MeteoGroup GmbH
-* using Kotlin in production since Sep 2016 (v.0...)
+* using Kotlin in production since Nov 2016 (v1.0.4)
 
 ## our products
 
